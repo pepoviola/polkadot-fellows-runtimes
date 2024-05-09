@@ -239,6 +239,7 @@ jobs:
 
       - name: Zombienet smoke test
         run: |
-          export PATH=./target/release:$PATH
+          export PATH=$(pwd)/target/release:$PATH
           echo $PATH
+          ls $(pwd)/target/release
           cargo test --manifest-path integration-tests/zombienet/Cargo.toml
