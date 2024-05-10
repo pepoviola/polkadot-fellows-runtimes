@@ -191,7 +191,7 @@ jobs:
           SKIP_WASM_BUILD: 1
 
   zombienet-smoke:
-    # needs: [build-chain-spec-generator]
+    needs: [build-chain-spec-generator]
     runs-on: ubuntu-latest
     steps:
       - name: Cancel previous runs
@@ -236,6 +236,7 @@ jobs:
           cargo build -p chain-spec-generator --release --locked
 
       - name: Zombienet smoke test
+        timeout-minutes: 10
         run: |
           export PATH=$(pwd)/target/release:$PATH
           cargo test --manifest-path integration-tests/zombienet/Cargo.toml
