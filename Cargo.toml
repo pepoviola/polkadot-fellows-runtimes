@@ -275,6 +275,10 @@ members = [
 	"system-parachains/people/people-kusama",
 ]
 
+exclude = [
+	"integration-tests/zombienet",
+]
+
 [profile.release]
 # Polkadot runtime requires unwinding.
 panic = "unwind"
